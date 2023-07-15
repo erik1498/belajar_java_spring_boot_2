@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.belajar_java.dao.TahunAkademikMapper">
+
+    <resultMap id="tahunAkademikResultMap" type="com.example.belajar_java.dto.response.TahunAkademikResponse">
+        <result column="ta_tahun" property="tahun" />
+        <result column="ta_semester" property="semester" />
+    </resultMap>
+
+    <select id="getAllTahunAkademik" resultMap="tahunAkademikResultMap">
+        SELECT * FROM tahun_akademik_tab
+    </select>
+</mapper>
