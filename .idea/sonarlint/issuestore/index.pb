@@ -9,3 +9,13 @@
 HELP.md,1/a/1a273f73b7a477b0745593641bd708a6182c7ad5
 w
 Gsrc/test/java/com/example/belajar_java/BelajarJavaApplicationTests.java,a/8/a88fadd969918e6810d6634ebabcf245907536aa
+r
+Bsrc/main/java/com/example/belajar_java/BelajarJavaApplication.java,5/7/57bf67c242961ee011bfc88fa16e4f6b51ae8a2a
+w
+G.idea/sonarlint/issuestore/1/f/1f1763f358c257ea3515417352b82b0165647ad1,4/4/441e6168af36afe9568996929caf6842abd87b08
+w
+G.idea/sonarlint/issuestore/1/a/1a273f73b7a477b0745593641bd708a6182c7ad5,d/8/d8b366b881b9b013c97b3b87cc0f3b2b80eddd36
+w
+G.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,b/4/b4a0b63ce8560bbc5de0f9995c20cc861dc2adb3
+w
+G.idea/sonarlint/issuestore/5/d/5d837c4ed85ecaaf932c506e80ff5d7b9f3d590d,8/4/84e47ea35f445eb5238128908f068928322bf283

@@ -27,7 +27,7 @@ public class DatabaseConfig {
     }
 
     @Bean(name = "databaseDataSource")
-    public DataSource erickheneDataSource(){
+    public DataSource databaseDataSource(){
         final DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
         driverManagerDataSource.setDriverClassName(Objects.requireNonNull(env.getProperty("spring.datasource.driver-class-name")));
         driverManagerDataSource.setUrl(env.getProperty("spring.datasource.url"));
@@ -37,7 +37,7 @@ public class DatabaseConfig {
     }
 
     @Bean(name = "databaseSqlSessionFactory")
-    public SqlSessionFactory sqlSessionFactory(@Qualifier("databaseDataSource") DataSource dataSource) throws Exception {
+    public SqlSessionFactory databaseSqlSessionFactory(@Qualifier("databaseDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(
