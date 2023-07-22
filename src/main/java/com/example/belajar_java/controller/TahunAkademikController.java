@@ -1,5 +1,6 @@
 package com.example.belajar_java.controller;
 
+import com.example.belajar_java.dto.response.GlobalResponse;
 import com.example.belajar_java.dto.response.TahunAkademikResponse;
 import com.example.belajar_java.entity.TahunAkademikEntity;
 import com.example.belajar_java.service.TahunAkademikService;
@@ -26,5 +27,10 @@ public class TahunAkademikController {
     @GetMapping("/all/data")
     public List<TahunAkademikEntity> getAllTahunAkademik(){
         return tahunAkademikService.getAllTahunAkademik();
+    }
+
+    @GetMapping("/all")
+    public GlobalResponse<List<TahunAkademikEntity>> getAll(){
+        return tahunAkademikService.getAll();
     }
 }

@@ -1,7 +1,9 @@
 package com.example.belajar_java.service;
 
 import com.example.belajar_java.dao.TahunAkademikMapper;
+import com.example.belajar_java.dto.response.GlobalResponse;
 import com.example.belajar_java.entity.TahunAkademikEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -27,5 +29,22 @@ public class TahunAkademikService {
     public List<TahunAkademikEntity> getAllTahunAkademik(){
         List<TahunAkademikEntity> allTahunAkademik = tahunAkademikMapper.getAllTahunAkademik();
         return allTahunAkademik;
+    }
+
+    public GlobalResponse<List<TahunAkademikEntity>> getAll() {
+        GlobalResponse<List<TahunAkademikEntity>> response = new GlobalResponse<>();
+        try{
+            List<TahunAkademikEntity> allTahunAkademik = tahunAkademikMapper.getAllTahunAkademik();
+            if (allTahunAkademik.size() == 0){
+                response.setMessage("Data Kosong");
+            }else{
+                response.setMessage("Data Tersedia");
+            }
+            response.setCode(HttpStatus.OK.value());
+        }catch (Exception e){
+            response.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+            response.setMessage(e.getMessage());
+        }
+        return response;
     }
 }
