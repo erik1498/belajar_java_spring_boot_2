@@ -59,11 +59,10 @@ public class TahunAkademikService {
                 response.setMessage("Data Tersedia");
             }
             response.setCode(HttpStatus.OK.value());
-            return ResponseEntity.ok(response);
         }catch (Exception e){
             response.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
             response.setMessage(e.getMessage());
-            return ResponseEntity.internalServerError().body(response);
         }
+        return ResponseEntity.status(response.getCode()).body(response);
     }
 }
