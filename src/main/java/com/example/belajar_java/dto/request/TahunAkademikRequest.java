@@ -1,7 +1,12 @@
 package com.example.belajar_java.dto.request;
 
+import javax.validation.constraints.NotNull;
+
 public class TahunAkademikRequest {
+    @NotNull(message = "tahun tidak boleh kosong")
     private Integer tahun;
+
+    @NotNull(message = "semester tidak boleh kosong")
     private Integer semester;
 
     public Integer getTahun() {

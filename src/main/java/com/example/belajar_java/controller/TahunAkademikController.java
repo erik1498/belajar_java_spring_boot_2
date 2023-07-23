@@ -6,8 +6,11 @@ import com.example.belajar_java.entity.TahunAkademikEntity;
 import com.example.belajar_java.service.TahunAkademikService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,10 +28,16 @@ public class TahunAkademikController {
     }
 
     @PostMapping
-    public ResponseEntity<GlobalResponse<TahunAkademikRequest>> postData(@RequestBody TahunAkademikRequest tahunAkademikRequest){
+    public ResponseEntity<GlobalResponse<TahunAkademikRequest>> postData(@Valid @RequestBody TahunAkademikRequest tahunAkademikRequest, Errors errors){
         GlobalResponse<TahunAkademikRequest> response = new GlobalResponse<>();
         response.setMessage("Success");
         response.setCode(HttpStatus.OK.value());
+        if (errors.hasErrors()){
+            for (ObjectError e: errors.getAllErrors()) {
+                response.setMessage(e.getDefaultMessage());
+            }
+            response.setCode(HttpStatus.BAD_REQUEST.value());
+        }
         response.setData(tahunAkademikRequest);
         return ResponseEntity.ok(response);
     }
