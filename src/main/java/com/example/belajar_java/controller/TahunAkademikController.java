@@ -24,21 +24,21 @@ public class TahunAkademikController {
 
     @GetMapping("/all")
     public ResponseEntity<GlobalResponse<List<TahunAkademikEntity>>> getAll(){
-        return tahunAkademikService.getAll();
+        GlobalResponse<List<TahunAkademikEntity>> response = tahunAkademikService.getAll();
+        return ResponseEntity.status(response.getCode()).body(response);
     }
 
     @PostMapping
-    public ResponseEntity<GlobalResponse<TahunAkademikRequest>> postData(@Valid @RequestBody TahunAkademikRequest tahunAkademikRequest, Errors errors){
-        GlobalResponse<TahunAkademikRequest> response = new GlobalResponse<>();
-        response.setMessage("Success");
-        response.setCode(HttpStatus.OK.value());
+    public ResponseEntity<GlobalResponse<TahunAkademikEntity>> postData(@Valid @RequestBody TahunAkademikRequest tahunAkademikRequest, Errors errors){
+        GlobalResponse<TahunAkademikEntity> response = new GlobalResponse<>();
         if (errors.hasErrors()){
             for (ObjectError e: errors.getAllErrors()) {
                 response.setMessage(e.getDefaultMessage());
             }
             response.setCode(HttpStatus.BAD_REQUEST.value());
+        }else {
+            response = tahunAkademikService.insertData(tahunAkademikRequest);
         }
-        response.setData(tahunAkademikRequest);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.status(response.getCode()).body(response);
     }
 }

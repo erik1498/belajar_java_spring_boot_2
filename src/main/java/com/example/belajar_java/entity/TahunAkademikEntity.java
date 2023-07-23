@@ -13,7 +13,6 @@ public class TahunAkademikEntity implements Serializable {
     @Id
     @Column(name = "uuid", updatable = false, nullable = false)
     private String uuid = UUID.randomUUID().toString();
-
     @Column(name = "ta_tahun")
     private Integer tahun;
     @Column(name = "ta_semester")
@@ -32,5 +31,13 @@ public class TahunAkademikEntity implements Serializable {
 
     public void setSemester(Integer semester) {
         this.semester = semester;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }

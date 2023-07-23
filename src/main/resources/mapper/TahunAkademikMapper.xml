@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.belajar_java.dao.TahunAkademikMapper">
 
-    <resultMap id="tahunAkademikResultMap" type="com.example.belajar_java.dto.response.TahunAkademikResponse">
+    <resultMap id="tahunAkademikResultMap" type="com.example.belajar_java.entity.TahunAkademikEntity">
+        <result column="uuid" property="uuid" />
         <result column="ta_tahun" property="tahun" />
         <result column="ta_semester" property="semester" />
     </resultMap>
@@ -10,4 +11,8 @@
     <select id="getAllTahunAkademik" resultMap="tahunAkademikResultMap">
         SELECT * FROM tahun_akademik_tab
     </select>
+    
+    <insert id="insertDataTahunAkademik" parameterType="com.example.belajar_java.entity.TahunAkademikEntity">
+        INSERT INTO `tahun_akademik_tab` (`uuid`, `ta_semester`, `ta_tahun`) VALUES ('${uuid}', ${semester}, ${tahun});
+    </insert>
 </mapper>
