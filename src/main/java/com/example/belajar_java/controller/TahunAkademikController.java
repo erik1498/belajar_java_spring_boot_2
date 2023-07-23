@@ -1,13 +1,12 @@
 package com.example.belajar_java.controller;
 
+import com.example.belajar_java.dto.request.TahunAkademikRequest;
 import com.example.belajar_java.dto.response.GlobalResponse;
-import com.example.belajar_java.dto.response.TahunAkademikResponse;
 import com.example.belajar_java.entity.TahunAkademikEntity;
 import com.example.belajar_java.service.TahunAkademikService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,23 +19,17 @@ public class TahunAkademikController {
         this.tahunAkademikService = tahunAkademikService;
     }
 
-    @GetMapping("/all/string")
-    public List<String> getAllString(){
-        return tahunAkademikService.getAllString();
-    }
-
-    @GetMapping("/all/data")
-    public List<TahunAkademikEntity> getAllTahunAkademik(){
-        return tahunAkademikService.getAllTahunAkademik();
-    }
-
     @GetMapping("/all")
-    public GlobalResponse<List<TahunAkademikEntity>> getAll(){
+    public ResponseEntity<GlobalResponse<List<TahunAkademikEntity>>> getAll(){
         return tahunAkademikService.getAll();
     }
 
-    @GetMapping("/all/response")
-    public ResponseEntity<GlobalResponse<List<TahunAkademikEntity>>> getAllResponse(){
-        return tahunAkademikService.getAllResponse();
+    @PostMapping
+    public ResponseEntity<GlobalResponse<TahunAkademikRequest>> postData(@RequestBody TahunAkademikRequest tahunAkademikRequest){
+        GlobalResponse<TahunAkademikRequest> response = new GlobalResponse<>();
+        response.setMessage("Success");
+        response.setCode(HttpStatus.OK.value());
+        response.setData(tahunAkademikRequest);
+        return ResponseEntity.ok(response);
     }
 }
