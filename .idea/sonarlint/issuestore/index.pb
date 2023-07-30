@@ -29,3 +29,5 @@ Gsrc/main/java/com/example/belajar_java/dto/response/GlobalResponse.java,a/b/ab
 Nsrc/main/java/com/example/belajar_java/dto/response/TahunAkademikResponse.java,4/f/4f7883dbd29413893202cde0a19121a462e44844
 v
 Fsrc/main/java/com/example/belajar_java/entity/TahunAkademikEntity.java,8/a/8a6ed167a4cc5890043353bb03e1bb21439bee30
+r
+Bsrc/main/java/com/example/belajar_java/BelajarJavaApplication.java,5/7/57bf67c242961ee011bfc88fa16e4f6b51ae8a2a

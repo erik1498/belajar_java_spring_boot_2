@@ -55,4 +55,10 @@ public class TahunAkademikController {
         }
         return ResponseEntity.status(response.getCode()).body(response);
     }
+
+    @DeleteMapping
+    public ResponseEntity<GlobalResponse<Boolean>> deleteData(@RequestParam("uuid") String uuid){
+        GlobalResponse<Boolean> response = tahunAkademikService.deleteData(uuid);
+        return ResponseEntity.status(response.getCode()).body(response);
+    }
 }

@@ -61,8 +61,21 @@ public class TahunAkademikService {
             entity.setUuid(uuid);
             tahunAkademikMapper.updateDataTahunAkademik(entity);
             response.setMessage("Update Success");
-            response.setCode(HttpStatus.OK.value());
+            response.setCode(HttpStatus.NO_CONTENT.value());
             response.setData(Boolean.TRUE);
+        }catch (Exception e){
+            response.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+            response.setMessage(e.getMessage());
+        }
+        return response;
+    }
+
+    public GlobalResponse<Boolean> deleteData(String uuid){
+        GlobalResponse<Boolean> response = new GlobalResponse<>();
+        try{
+            tahunAkademikMapper.deleteDataTahunAkademik(uuid);
+            response.setMessage("Delete Success");
+            response.setCode(HttpStatus.OK.value());
         }catch (Exception e){
             response.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
             response.setMessage(e.getMessage());

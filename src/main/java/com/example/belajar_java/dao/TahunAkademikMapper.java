@@ -10,4 +10,5 @@ public interface TahunAkademikMapper {
     List<TahunAkademikEntity> getAllTahunAkademik();
     void insertDataTahunAkademik(TahunAkademikEntity tahunAkademikEntity);
     void updateDataTahunAkademik(TahunAkademikEntity tahunAkademikEntity);
+    void deleteDataTahunAkademik(String uuid);
 }

@@ -19,4 +19,8 @@
     <update id="updateDataTahunAkademik" parameterType="com.example.belajar_java.entity.TahunAkademikEntity">
         UPDATE tahun_akademik_tab SET ta_tahun = ${tahun}, ta_semester = ${semester} WHERE uuid = '${uuid}'
     </update>
+
+    <delete id="deleteDataTahunAkademik" parameterType="java.lang.String">
+        DELETE FROM tahun_akademik_tab WHERE uuid = '${value}'
+    </delete>
 </mapper>
