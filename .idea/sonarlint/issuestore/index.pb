@@ -9,8 +9,6 @@
 HELP.md,1/a/1a273f73b7a477b0745593641bd708a6182c7ad5
 w
 Gsrc/test/java/com/example/belajar_java/BelajarJavaApplicationTests.java,a/8/a88fadd969918e6810d6634ebabcf245907536aa
-r
-Bsrc/main/java/com/example/belajar_java/BelajarJavaApplication.java,5/7/57bf67c242961ee011bfc88fa16e4f6b51ae8a2a
 w
 G.idea/sonarlint/issuestore/1/f/1f1763f358c257ea3515417352b82b0165647ad1,4/4/441e6168af36afe9568996929caf6842abd87b08
 w
@@ -21,3 +19,13 @@ w
 G.idea/sonarlint/issuestore/5/d/5d837c4ed85ecaaf932c506e80ff5d7b9f3d590d,8/4/84e47ea35f445eb5238128908f068928322bf283
 q
 Asrc/main/java/com/example/belajar_java/config/DatabaseConfig.java,c/6/c6b155a40a80419e06557a918d2d2eb650701bfc
+7
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+|
+Lsrc/main/java/com/example/belajar_java/dto/request/TahunAkademikRequest.java,5/e/5ed60dbcab9d471d83a68359d996e6df7c34ed19
+w
+Gsrc/main/java/com/example/belajar_java/dto/response/GlobalResponse.java,a/b/ab57bc4c5bb93de825a950f85bbc9d769e49c557
+~
+Nsrc/main/java/com/example/belajar_java/dto/response/TahunAkademikResponse.java,4/f/4f7883dbd29413893202cde0a19121a462e44844
+v
+Fsrc/main/java/com/example/belajar_java/entity/TahunAkademikEntity.java,8/a/8a6ed167a4cc5890043353bb03e1bb21439bee30

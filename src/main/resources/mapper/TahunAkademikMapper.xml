@@ -13,6 +13,10 @@
     </select>
     
     <insert id="insertDataTahunAkademik" parameterType="com.example.belajar_java.entity.TahunAkademikEntity">
-        INSERT INTO `tahun_akademik_tab` (`uuid`, `ta_semester`, `ta_tahun`) VALUES ('${uuid}', ${semester}, ${tahun});
+        INSERT INTO tahun_akademik_tab (uuid, ta_semester, ta_tahun) VALUES ('${uuid}', ${semester}, ${tahun});
     </insert>
+
+    <update id="updateDataTahunAkademik" parameterType="com.example.belajar_java.entity.TahunAkademikEntity">
+        UPDATE tahun_akademik_tab SET ta_tahun = ${tahun}, ta_semester = ${semester} WHERE uuid = '${uuid}'
+    </update>
 </mapper>

@@ -43,8 +43,26 @@ public class TahunAkademikService {
             entity.setSemester(tahunAkademikRequest.getSemester());
             tahunAkademikMapper.insertDataTahunAkademik(entity);
             response.setMessage("Insert Success");
-            response.setCode(HttpStatus.OK.value());
+            response.setCode(HttpStatus.CREATED.value());
             response.setData(entity);
+        }catch (Exception e){
+            response.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+            response.setMessage(e.getMessage());
+        }
+        return response;
+    }
+
+    public GlobalResponse<Boolean> updateData(TahunAkademikRequest tahunAkademikRequest, String uuid){
+        GlobalResponse<Boolean> response = new GlobalResponse<>();
+        try{
+            TahunAkademikEntity entity = new TahunAkademikEntity();
+            entity.setSemester(tahunAkademikRequest.getSemester());
+            entity.setTahun(tahunAkademikRequest.getTahun());
+            entity.setUuid(uuid);
+            tahunAkademikMapper.updateDataTahunAkademik(entity);
+            response.setMessage("Update Success");
+            response.setCode(HttpStatus.OK.value());
+            response.setData(Boolean.TRUE);
         }catch (Exception e){
             response.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
             response.setMessage(e.getMessage());

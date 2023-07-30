@@ -41,4 +41,18 @@ public class TahunAkademikController {
         }
         return ResponseEntity.status(response.getCode()).body(response);
     }
+
+    @PutMapping
+    public ResponseEntity<GlobalResponse<Boolean>> putData(@Valid @RequestBody TahunAkademikRequest tahunAkademikRequest, @RequestParam("uuid") String uuid, Errors errors){
+        GlobalResponse<Boolean> response = new GlobalResponse<>();
+        if (errors.hasErrors()){
+            for (ObjectError e: errors.getAllErrors()) {
+                response.setMessage(e.getDefaultMessage());
+            }
+            response.setCode(HttpStatus.BAD_REQUEST.value());
+        }else {
+            response = tahunAkademikService.updateData(tahunAkademikRequest, uuid);
+        }
+        return ResponseEntity.status(response.getCode()).body(response);
+    }
 }
