@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/tahun_akademik")
+@CrossOrigin
 public class TahunAkademikController {
     final TahunAkademikService tahunAkademikService;
 
